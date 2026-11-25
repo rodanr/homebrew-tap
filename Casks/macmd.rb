@@ -1,6 +1,6 @@
 cask "macmd" do
-  version "0.8.0"
-  sha256 "a32d9dd0fcb530a5385743fcf538b03014e466706bcfc2a0f781d109c8092289"
+  version "0.9.0"
+  sha256 "1f52aca984673b1ea42d4343ccad032536892e83a6a2caac33150a7fe9c473e0"
 
   url "https://github.com/rodanr/MacMD/releases/download/v#{version}/MacMD-#{version}.dmg"
   name "MacMD"
