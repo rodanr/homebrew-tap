@@ -1,28 +1,34 @@
 # rodanr/tap
 
-Homebrew tap for [MacMD](https://github.com/rodanr/MacMD), a native Markdown reader and editor for macOS 26+ on Apple silicon.
+Homebrew tap for apps by [@rodanr](https://github.com/rodanr).
 
-```sh
-brew install --cask rodanr/tap/macmd   # install (this also trusts the macmd cask)
-brew upgrade macmd                     # update
-brew uninstall --zap macmd             # remove the app and its settings
-```
+| App | Install | About |
+|---|---|---|
+| [MacMD](https://github.com/rodanr/MacMD) | `brew install --cask rodanr/tap/macmd` | Native Markdown reader and editor, macOS 26+ on Apple silicon |
 
-Installed MacMD from the DMG before? Delete `/Applications/MacMD.app` first, or add `--force` to the install command.
+Installing a fully qualified name (`rodanr/tap/<name>`) trusts just that item. To use short names instead, run
+`brew tap rodanr/tap && brew trust rodanr/tap`. Update with `brew upgrade <name>`, remove with
+`brew uninstall --zap <name>`.
 
-## Why no "Open Anyway"?
+## Notes per app
+
+### MacMD
 
 MacMD isn't notarized by Apple yet. The cask removes the download quarantine flag from `MacMD.app` after
-installing, so macOS opens it without the one-time prompt. This is what the MacMD README's Terminal tip does.
-The download is still pinned by its SHA-256 checksum, and every release has a build provenance attestation:
+installing, so macOS opens it without the one-time Open Anyway prompt. The download is still pinned by its
+SHA-256 checksum, and every release has a build provenance attestation
+(`gh attestation verify MacMD-X.Y.Z.dmg --repo rodanr/MacMD`). The step goes away once releases are notarized.
 
-```sh
-gh attestation verify MacMD-X.Y.Z.dmg --repo rodanr/MacMD
-```
+Installed from the DMG before? Delete `/Applications/MacMD.app` first, or add `--force`.
 
-The step goes away once releases are notarized.
+## Adding an app
 
-## Updates
-
-The MacMD release workflow commits each stable release here (`Casks/macmd.rb`). The daily `brew bump`
-workflow is a fallback that opens a pull request if a release was missed.
+1. Add `Casks/<token>.rb` (GUI app) or `Formula/<name>.rb` (CLI tool). `brew create --cask <url> --tap rodanr/tap`
+   gives a starting point.
+2. Check it with `brew style rodanr/tap` and `brew audit --strict --online rodanr/tap/<name>`.
+3. Keep it current, in one of two ways:
+   - Copy the *Update Homebrew tap* step from
+     [MacMD's release workflow](https://github.com/rodanr/MacMD/blob/main/.github/workflows/release.yml)
+     into the app's release workflow, and give that repo the `HOMEBREW_TAP_DEPLOY_KEY` secret. This tap has
+     one write deploy key, and every app repo stores the same private half.
+   - Rely on the daily `brew bump` workflow, which uses each cask's `livecheck` to open pull requests.
