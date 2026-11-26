@@ -46,6 +46,7 @@ its SHA-256 checksum. After installing, grant Accessibility as the app's Control
 3. Keep it current, in one of two ways:
    - Copy the *Update Homebrew tap* step from
      [MacMD's release workflow](https://github.com/rodanr/MacMD/blob/main/.github/workflows/release.yml)
-     into the app's release workflow, and give that repo the `HOMEBREW_TAP_DEPLOY_KEY` secret. This tap has
-     one write deploy key, and every app repo stores the same private half.
+     into the app's release workflow, and give that repo the `HOMEBREW_TAP_DEPLOY_KEY` secret. Give each app repo its
+     own write deploy key on this tap (Settings, Deploy keys) and store it as that repo's
+     `HOMEBREW_TAP_DEPLOY_KEY` secret, so one leak or rotation affects only one app.
    - Rely on the daily `brew bump` workflow, which uses each cask's `livecheck` to open pull requests.
