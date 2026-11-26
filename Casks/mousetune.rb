@@ -1,6 +1,6 @@
 cask "mousetune" do
-  version "0.1.0"
-  sha256 "cc2470204dcdbcbf50d54ab57105181bbdc513adbb01bda2273751ce849b51d4"
+  version "0.1.1"
+  sha256 "3d996a57b89f2144e28c15ad1d78984a7d0a0ec1ea8b03a98e46b5ae28df5d19"
 
   url "https://github.com/rodanr/mousetune-deathadder-essential/releases/download/v#{version}/MouseTune-#{version}-macos-universal.dmg"
   name "MouseTune"
