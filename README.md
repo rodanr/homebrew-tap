@@ -5,6 +5,7 @@ Homebrew tap for apps by [@rodanr](https://github.com/rodanr).
 | App | Install | About |
 |---|---|---|
 | [MacMD](https://github.com/rodanr/MacMD) | `brew install --cask rodanr/tap/macmd` | Native Markdown reader and editor, macOS 26+ on Apple silicon |
+| [MouseTune](https://github.com/rodanr/mousetune-deathadder-essential) | `brew install --cask rodanr/tap/mousetune` | DPI, polling rate and lighting for the Razer DeathAdder Essential, macOS 13+ (universal) |
 
 Installing a fully qualified name (`rodanr/tap/<name>`) trusts just that item. To use short names instead, run
 `brew tap rodanr/tap && brew trust rodanr/tap`. Update with `brew upgrade <name>`, remove with
@@ -20,6 +21,13 @@ SHA-256 checksum, and every release has a build provenance attestation
 (`gh attestation verify MacMD-X.Y.Z.dmg --repo rodanr/MacMD`). The step goes away once releases are notarized.
 
 Installed from the DMG before? Delete `/Applications/MacMD.app` first, or add `--force`.
+
+### MouseTune
+
+MouseTune is ad-hoc signed, not notarized. Like MacMD, the cask removes the download quarantine flag from
+`MouseTune.app` after installing, so macOS opens it without the Open Anyway prompt; the download is pinned by
+its SHA-256 checksum. On first launch, allow Input Monitoring so it can talk to the mouse. MouseTune is not
+affiliated with or endorsed by Razer Inc.
 
 ## Adding an app
 
