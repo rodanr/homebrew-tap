@@ -1,6 +1,6 @@
 cask "pocketremote" do
-  version "1.0.4"
-  sha256 "4e125ea8c91fa19aa37bb0fab66ecf925c12b462b1bc51a6efe0d45e53d041d2"
+  version "1.0.5"
+  sha256 "6d45aa1e5a4eb5302aa6ad2de41f87bbe6b831082477866b92df0aac33e78c79"
 
   url "https://github.com/rodanr/PocketRemote/releases/download/v#{version}/PocketRemote-#{version}.dmg"
   name "PocketRemote"
