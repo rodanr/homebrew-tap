@@ -6,6 +6,7 @@ Homebrew tap for apps by [@rodanr](https://github.com/rodanr).
 |---|---|---|
 | [MacMD](https://github.com/rodanr/MacMD) | `brew install --cask rodanr/tap/macmd` | Native Markdown reader and editor, macOS 26+ on Apple silicon |
 | [MouseTune](https://github.com/rodanr/mousetune-deathadder-essential) | `brew install --cask rodanr/tap/mousetune` | DPI, polling rate and lighting for the Razer DeathAdder Essential, macOS 13+ (universal) |
+| [PocketRemote](https://github.com/rodanr/PocketRemote) | `brew install --cask rodanr/tap/pocketremote` | Mac host for the PocketRemote phone remote (trackpad, keyboard, media keys), macOS 12+ on Apple silicon |
 
 Installing a fully qualified name (`rodanr/tap/<name>`) trusts just that item. To use short names instead, run
 `brew tap rodanr/tap && brew trust rodanr/tap`. Update with `brew upgrade <name>`, remove with
@@ -28,6 +29,14 @@ MouseTune is ad-hoc signed, not notarized. Like MacMD, the cask removes the down
 `MouseTune.app` after installing, so macOS opens it without the Open Anyway prompt; the download is pinned by
 its SHA-256 checksum. On first launch, allow Input Monitoring so it can talk to the mouse. MouseTune is not
 affiliated with or endorsed by Razer Inc.
+
+### PocketRemote
+
+This installs the Mac host only; the Android app is a separate APK on the
+[releases page](https://github.com/rodanr/PocketRemote/releases/latest). Like the others, the Mac app is ad-hoc
+signed and not notarized, so the cask removes the quarantine flag after installing; the download is pinned by
+its SHA-256 checksum. After installing, grant Accessibility as the app's Control Panel describes, and press
+**Allow this network** the first time on a new network.
 
 ## Adding an app
 
